@@ -69,20 +69,20 @@ static void cv_add_element_(Vector *vector, void *element) {
 
 static void cv_delete(Vector *vector) {
     free(vector->data);
+    *vector = (Vector) {0};
 }
 
 static void cv_pop_back(Vector *vector) {
     if (vector->size > 0) {
         vector->size--;
-        memset(vector->data + vector->size * vector->type_size, 0, vector->type_size);
     }
 }
 
 static void cv_erase(Vector *vector, uint32_t i) {
     if (i < vector->size) {
-        memcpy(vector->data + i * vector->type_size,
-               vector->data + (i + 1) * vector->type_size,
-               vector->type_size * (vector->size - i));
+        memmove(vector->data + i * vector->type_size,
+                vector->data + (i + 1) * vector->type_size,
+                vector->type_size * (vector->size - i));
         vector->size--;
     } else {
         fprintf(stderr, "Error! Memory hasn't erased!");
