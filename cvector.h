@@ -90,6 +90,5 @@ static void cv_erase(Vector *vector, uint32_t i) {
 }
 
 static void cv_clear(Vector *vector) {
-    memset(vector->data, 0, vector->size * vector->type_size);
     vector->size = 0;
 }
