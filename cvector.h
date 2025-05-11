@@ -5,14 +5,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef void* d_array;
-static const uint8_t start_size = 2;
+static const uint32_t start_size = 2;
 
 typedef struct Vector {
     uint32_t type_size;
     uint32_t size;
     uint32_t allocated_size;
-    d_array data;
+    void* data;
 } Vector;
 
 static void cv_create(Vector *vector, u_int32_t size);
