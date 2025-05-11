@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
@@ -13,13 +15,13 @@ typedef struct Vector {
     d_array data;
 } Vector;
 
-void cv_create(Vector *vector, u_int32_t size);
-void cv_delete(Vector *vector);
-void cv_add_element_(Vector *vector, void *element);
-void cv_set_size(Vector *vector, uint32_t size);
-void cv_pop_back(Vector *vector);
-void cv_erase(Vector *vector, uint32_t i);
-void cv_clear(Vector *vector);
+static void cv_create(Vector *vector, u_int32_t size);
+static void cv_delete(Vector *vector);
+static void cv_add_element_(Vector *vector, void *element);
+static void cv_set_size(Vector *vector, uint32_t size);
+static void cv_pop_back(Vector *vector);
+static void cv_erase(Vector *vector, uint32_t i);
+static void cv_clear(Vector *vector);
 
 #define cv_get(vector, i, type)            *(((type*)(vector.data) + i))
 #define cv_set(vector, i, type, value)     *(((type*)(vector.data) + i)) = value

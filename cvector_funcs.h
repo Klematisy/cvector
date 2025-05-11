@@ -1,3 +1,4 @@
+#pragma once
 
 void cv_create(Vector *vector, u_int32_t size) {
     vector->data = malloc(size * start_size);
