@@ -14,7 +14,7 @@ typedef struct Vector {
     void* data;
 } Vector;
 
-static void cv_create(Vector *vector, u_int32_t size);
+static void cv_create(Vector *vector, uint32_t size);
 static void cv_delete(Vector *vector);
 static void cv_add_element_(Vector *vector, void *element);
 static void cv_set_size(Vector *vector, uint32_t size);
@@ -28,15 +28,15 @@ static void cv_clear(Vector *vector);
         {                                    \
             type temp = b;                   \
             cv_add_element_(vector, &temp);  \
-        }                                    \
+        }
 
 
 /*--------------------------------IMPLEMENTATION--------------------------------*/
 
-static void cv_create(Vector *vector, u_int32_t size) {
+static void cv_create(Vector *vector, uint32_t size) {
     vector->data = malloc(size * VECTOR_INIT_SIZE);
     vector->type_size = size;
-    vector->allocated_size = 2;
+    vector->allocated_size = VECTOR_INIT_SIZE;
     vector->size = 0;
 }
 
