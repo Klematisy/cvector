@@ -23,10 +23,10 @@ void cv_clear(Vector *vector);
 
 #define cv_get(vector, i, type)            *(((type*)(vector.data) + i))
 #define cv_set(vector, i, type, value)     *(((type*)(vector.data) + i)) = value
-#define cv_push_back(vector, type, b)     \
-        for (type j = b; ;) {             \
-            cv_add_element_(vector, &j);  \
-            break;                        \
-        }1
+#define cv_push_back(vector, type, b)        \
+        {                                    \
+            type temp = b;                   \
+            cv_add_element_(vector, &temp);  \
+        }                                    \
 
 #include "cvector_funcs.h"
