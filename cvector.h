@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static const uint32_t start_size = 2;
+static const uint32_t VECTOR_INIT_SIZE = 2;
 
 typedef struct Vector {
     uint32_t type_size;
@@ -34,7 +34,7 @@ static void cv_clear(Vector *vector);
 /*--------------------------------IMPLEMENTATION--------------------------------*/
 
 static void cv_create(Vector *vector, u_int32_t size) {
-    vector->data = malloc(size * start_size);
+    vector->data = malloc(size * VECTOR_INIT_SIZE);
     vector->type_size = size;
     vector->allocated_size = 2;
     vector->size = 0;
